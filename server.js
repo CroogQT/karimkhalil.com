@@ -9,6 +9,7 @@ const app = express();
 const isEnvProd = envTool.isProd(process);
 
 app.set('view engine', 'ejs');
+app.use(express.static('public'))
 
 if (isEnvProd) {
 
