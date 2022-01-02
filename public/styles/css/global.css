@@ -50,7 +50,6 @@ main {
 }
 @media (max-width: 600px) {
   .navItems {
-    display: hidden;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -60,11 +59,19 @@ main {
     left: 0;
     padding: 2em;
     background-color: #141414;
-    transition: all 0.2s ease-out;
     transform: translateY(calc(-100% - 5em));
+    transition: transform 0.2s ease-out;
   }
   .navItems p {
+    width: 100%;
     font-size: 2em;
+    text-align: center;
+    cursor: pointer;
+  }
+  .navItems p:hover {
+    background-color: #090909;
+    transition: background-color 0.2s;
+    border-radius: 0.1em;
   }
   .navItems.opened {
     display: flex;
@@ -83,7 +90,13 @@ main {
   width: 1.5em;
   height: 0.2em;
   background-color: white;
-  transition: all 0.2s;
+  transition: transform 0.2s;
+}
+.navButton .line .line1 {
+  transform-origin: top left;
+}
+.navButton .line .line3 {
+  transform-origin: bottom left;
 }
 .navButton.opened .line1 {
   transform-origin: top left;

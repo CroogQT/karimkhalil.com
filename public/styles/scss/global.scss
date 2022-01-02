@@ -111,7 +111,6 @@ main{
 
     @include breakpoint('mobileNav'){
 
-        display: hidden;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -125,18 +124,32 @@ main{
 
         background-color: $darkCardBackground;
 
-        transition: all .2s ease-out;
         transform: translateY(calc(-100% - 5em));
+        transition: transform .2s ease-out;
 
 
         p{
 
+            width: 100%;
+
+
             font-size: 2em;
+            text-align: center;
+
+            cursor: pointer;
+
+            &:hover{
+
+                background-color: #090909;
+                transition: background-color .2s;
+                border-radius: .1em;
+
+            }
 
         }
 
         &.opened{
-
+            
             display: flex;
             transform: translateY(0);
 
@@ -160,7 +173,19 @@ main{
         width: 1.5em;
         height: .2em;
         background-color: $textLight;
-        transition: all .2s;
+        transition: transform .2s;
+
+        .line1{
+
+            transform-origin: top left;
+
+        }
+
+        .line3{
+
+            transform-origin: bottom left;
+
+        }
 
     }
 
