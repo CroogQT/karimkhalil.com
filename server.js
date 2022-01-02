@@ -14,7 +14,12 @@ if (isEnvProd) {
 
 }
 
+app.get('/', (req, res) => {
 
+    console.log('tes');
+    res.send('yo')
+
+})
 
 if(isEnvProd){
 
