@@ -1,6 +1,36 @@
+@mixin breakpoint($breakpoint) {
+
+  @if map-has-key($breakpoints, $breakpoint) {
+
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+
+        @content;
+
+    }
+
+  }
+ 
+  @else {
+
+    @warn "The breakpoint #{$breakpoint} is not in the list:" + " #{map-keys($breakpoints)}.";
+
+  }
+
+}
+
+
 $backgroundColor: #090909;
 $darkCardBackground: #141414;
 $textLight: white;
+// TODO: for some reason, I can't use $navHeight inside calc(). Hard coding 5em for now until I have a moment to figure this out.
+$navHeight: 5em;
+
+
+$breakpoints: (
+
+    'mobileNav': 600px,
+
+) !default;
 
 body{
 
@@ -12,6 +42,7 @@ body{
 p,h1,h2{
 
     color: $textLight;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
 }
 
@@ -22,6 +53,7 @@ nav{
     align-items: center;
 
     width: 100%;
+    height: $navHeight;
     padding: 1.5em;
 
     background-color: $darkCardBackground;
@@ -30,12 +62,8 @@ nav{
 
         font-size: 2em;
         font-weight: 500;
-
-    }
-
-    p{
-
-        margin-left: 3em;
+        //INFO: Z-Index prevents #mobileNavMenu from occluding the title when it's animating in/out.
+        z-index: 100;
 
     }
 
@@ -55,5 +83,117 @@ main{
 
     width: 100%;
 
+    h2{
+
+
+
+    }
+
+}
+
+.navWrapper{
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+
+}
+
+.navItems{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    width: 100%;
+    gap: .9em;
+
+    @include breakpoint('mobileNav'){
+
+        display: hidden;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1em; 
+
+        position: absolute;
+        top: 5em;
+        left: 0;
+
+        padding: 2em;
+
+        background-color: $darkCardBackground;
+
+        transition: all .2s ease-out;
+        transform: translateY(calc(-100% - 5em));
+
+
+        p{
+
+            font-size: 2em;
+
+        }
+
+        &.opened{
+
+            display: flex;
+            transform: translateY(0);
+
+        }
+
+        
+    }
+
+}
+
+.navButton{
+
+    display: none;
+    flex-direction: column;
+    gap: .3em;
+    cursor: pointer;
+    padding: 0.6em;
+
+    .line{
+
+        width: 1.5em;
+        height: .2em;
+        background-color: $textLight;
+        transition: all .2s;
+
+    }
+
+    &.opened{
+
+        $lineTranslate: .1em;
+
+        .line1{
+
+            transform-origin: top left;
+            transform: rotate(45deg);
+
+        }
+
+        .line2{
+
+            transform: scaleX(0);
+
+        }
+
+        .line3{
+
+            transform-origin: bottom left;
+            transform: rotate(-45deg);
+
+        }
+
+    }
+
+    @include breakpoint('mobileNav'){
+
+        display: flex;
+
+    }
 
 }
