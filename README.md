@@ -45,4 +45,4 @@ WantedBy=multi-user.target
 If you're interested in contributing to my personal portfolio, first of all, hi mom! Second of all, please open an issue first to discuss what you would like to change so that you don't waste your time on something that I reject out of hand.
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/) - Karim Khalilall
+[GPL2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html) - Karim
