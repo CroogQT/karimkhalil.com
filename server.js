@@ -6,7 +6,9 @@ import envTool from './src/envTool.js';
 import config from './config.js';
 
 const app = express();
-const isEnvProd = envTool.isProd(process)
+const isEnvProd = envTool.isProd(process);
+
+app.set('view engine', 'ejs');
 
 if (isEnvProd) {
 
@@ -16,8 +18,7 @@ if (isEnvProd) {
 
 app.get('/', (req, res) => {
 
-    console.log('tes');
-    res.send('yo')
+    res.render('index');
 
 })
 
