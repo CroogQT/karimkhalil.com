@@ -10,6 +10,7 @@
     <title>Welcome to my slice.</title>
     <link rel="stylesheet" href="/styles/css/reset.css">
     <link rel="stylesheet" href="/styles/css/global.css">
+    <script src="/scripts/animatedSelectElement.js" defer></script>
     <script src="/scripts/navMenuButtonAnimation.js" defer></script>
 
 </head>
@@ -44,21 +45,22 @@
 
     <main>
 
-        <div class="hero">
+        <section class="hero">
 
             <h2>Hi!</h2>
             <h2>How can I help you?</h2>
 
-            <select class="animatedDropdown">
+            <animated-select>
+                <h2>Frontend Development</h2>
+                <h2>System Administration</h2>
+                <h2>Backend Development</h2>
+                <h2>Database Archetecture</h2>
+                <h2>Quitting vim</h2>
+            </animated-select>
 
-                <option>Test1</option>
-                <option>Test1</option>
-                <option>Test1</option>
-                <option>Test1</option>
+            <small>The above "animated-select" element was created with the <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements">HTML custom element standard</a>!</small>
 
-            </select>
-
-        </div>
+        </section>
 
     </main>
 
