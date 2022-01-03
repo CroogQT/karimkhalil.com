@@ -7,7 +7,7 @@ template.innerHTML = `
 
 function isElementAnimateable(element){
 
-    const animateableElements = ['H2'];
+    const animateableElements = ['H1', 'H2', 'H3', 'H4', 'H5'];
     if (animateableElements.includes(element.tagName)){
 
         return true;
@@ -15,6 +15,24 @@ function isElementAnimateable(element){
     }
 
     return false;
+
+}
+
+function animateElement(){
+
+
+
+}
+
+function getRandomElementFromArray(elementArray, usedElements){
+
+    const randomIndex = Math.floor(Math.random() * elementArray.length);
+    let randomElement = elementArray[randomIndex];
+
+    usedElements.push(randomElement);
+    elementArray.splice(randomIndex, 1)
+
+    return randomElement;
 
 }
 
@@ -29,15 +47,17 @@ class AnimatedSelect extends HTMLElement{
         this.slots = this.shadowRoot.querySelectorAll('slot');
         this.wrapper = this.shadowRoot.getElementById('wrapper');
         this.optionElements = [];
+        this.usedElements = [];
         this.backgroundColor = "#eee";
+        this.isAnimated = true;
         this.slots.forEach(slot => {
            
             slot.assignedElements().forEach( element => {
 
                 if(isElementAnimateable(element)){
 
-                    element.remove()
-                    this.optionElements.push(element)
+                    element.style.display = 'none'
+                    this.optionElements.push(element);
 
                 }
 
@@ -45,8 +65,25 @@ class AnimatedSelect extends HTMLElement{
 
         });
 
-        this.appendChild(this.optionElements[1])
+        const animationInterval = setInterval(() => {
         
+            if(this.optionElements.length === 0){
+
+                this.optionElements = this.usedElements;
+                this.usedElements.length = 0;
+
+            }
+
+            let randomElement = getRandomElementFromArray(this.optionElements, this.usedElements)
+
+            console.log(this.usedElementsk)
+            this.usedElements.push(randomElement)
+
+            this.wrapper.innerHTML = '';
+            randomElement.style.display = 'block'
+            this.wrapper.appendChild(randomElement);
+
+        }, 800);
 
     }
 
