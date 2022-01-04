@@ -63,6 +63,18 @@ td {
   color: white;
 }
 
+section.narrow {
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+@media (max-width: 800px) {
+  section.narrow {
+    padding: 2em;
+  }
+}
+
 animated-select {
   background-color: #eee;
   border-radius: 0.3em;
@@ -94,7 +106,7 @@ animated-select h2.outgoing {
   display: flex;
   flex-direction: row;
 }
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .row {
     flex-direction: column;
   }
@@ -103,6 +115,7 @@ animated-select h2.outgoing {
 .col {
   display: flex;
   flex-direction: column;
+  margin-bottom: 0.6em;
 }
 
 .hero {
@@ -111,7 +124,7 @@ animated-select h2.outgoing {
   padding: 5em;
   width: 100%;
 }
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .hero {
     padding: 2em;
   }
@@ -119,10 +132,17 @@ animated-select h2.outgoing {
 .transition {
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 0.3em;
   background: #a53890;
   padding: 1.1em;
   box-shadow: 0px 0px 10px black inset;
   font-weight: bolder;
+}
+.transition svg {
+  height: 1.4em;
+  stroke: white;
+  fill: white;
 }
 
 .weChall {
@@ -135,7 +155,7 @@ animated-select h2.outgoing {
 .weChall .col {
   max-width: 50%;
 }
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .weChall .col {
     max-width: 100%;
   }
@@ -174,7 +194,7 @@ animated-select h2.outgoing {
   width: 100%;
   gap: 0.9em;
 }
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .navItems {
     flex-direction: column;
     justify-content: center;
@@ -235,7 +255,7 @@ animated-select h2.outgoing {
   transform-origin: bottom left;
   transform: rotate(-45deg);
 }
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .navButton {
     display: flex;
   }
@@ -255,8 +275,9 @@ animated-select h2.outgoing {
 }
 .warningRow {
   padding: 3em;
+  padding-bottom: 0;
 }
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .warningRow {
     padding: 1em;
   }
@@ -272,7 +293,7 @@ animated-select h2.outgoing {
   padding: 0.5em;
   border-radius: 0.5em;
 }
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .warning h1 {
     font-size: 1em;
   }
