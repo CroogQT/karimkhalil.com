@@ -11,11 +11,11 @@ const isEnvProd = envTool.isProd(process);
 app.set('view engine', 'ejs');
 app.use(express.static('public'))
 
-if (isEnvProd) {
+app.use((req, res, next) => {
 
-    certs.redirectToHTTPS();
+    certs.redirectToHTTPS(req, res, next)
 
-}
+})
 
 app.get('/', (req, res) => {
 
