@@ -8,8 +8,8 @@ const certs = {
 
         const credentials = {
 
-            key: fs.readFileSync(`${credentialDirectoryPath}privkey.pem`, 'utf-8'),
-            cert: fs.readFileSync(`${credentialDirectoryPath}fullchain.pem`, 'utf-8')
+            key: fs.readFileSync(`${credentialDirectoryPath}/privkey.pem`, 'utf-8'),
+            cert: fs.readFileSync(`${credentialDirectoryPath}/fullchain.pem`, 'utf-8')
 
         }
 
