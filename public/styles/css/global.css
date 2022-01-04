@@ -3,9 +3,17 @@ body {
   width: 100vw;
 }
 
-p, h1, h2 {
+p, h1, h2, select, animated-select {
   color: white;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+small {
+  color: #777;
+}
+
+a:visited {
+  color: #b03c99;
 }
 
 nav {
@@ -25,6 +33,44 @@ nav h1 {
 
 main {
   width: 100%;
+}
+
+select {
+  padding: 0.5em;
+  border: none;
+  border-radius: 0;
+  font-size: 1.2em;
+  color: black;
+}
+
+td {
+  color: white;
+}
+
+animated-select {
+  background-color: #eee;
+  border-radius: 0.3em;
+  color: #090909;
+  overflow: hidden;
+}
+animated-select h2 {
+  opacity: 0;
+  font-size: 2em;
+  color: #101010;
+  position: absolute;
+}
+animated-select h2.incoming {
+  position: relative;
+  opacity: 100;
+  transition: all 0.6s;
+  animation-name: slidein;
+  animation-duration: 0.4s;
+}
+animated-select h2.outgoing {
+  position: relative;
+  transition: all 0.6s;
+  animation-name: slideout;
+  animation-duration: 0.2s;
 }
 
 .hero {
@@ -112,6 +158,19 @@ main {
 @media (max-width: 600px) {
   .navButton {
     display: flex;
+  }
+}
+
+@keyframes slidein {
+  from {
+    transform: translateY(-100%);
+    filter: blur(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    filter: blur(0);
+    opacity: 100%;
   }
 }
 

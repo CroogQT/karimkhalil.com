@@ -19,9 +19,13 @@
 }
 
 
+  
+
+
 $backgroundColor: #090909;
 $darkCardBackground: #141414;
 $textLight: white;
+$faintTextLight: #777;
 // TODO: for some reason, I can't use $navHeight inside calc(). Hard coding 5em for now until I have a moment to figure this out.
 $navHeight: 5em;
 
@@ -39,10 +43,26 @@ body{
 
 }
 
-p,h1,h2{
+p,h1,h2, select, animated-select{
 
     color: $textLight;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+small{
+
+    color: $faintTextLight;
+
+}
+
+a{
+
+    &:visited{
+
+        color: #b03c99;
+
+    }
 
 }
 
@@ -72,6 +92,63 @@ nav{
 main{
 
     width: 100%;
+
+}
+
+select{
+
+    padding: .5em;
+    border: none;
+    border-radius: 0;
+
+    font-size: 1.2em;
+
+    color: black;
+
+}
+
+td{
+
+    color: white;
+
+}
+
+animated-select{
+
+    background-color: #eee;
+    border-radius: .3em;
+    color: #090909;
+    overflow: hidden;
+
+    h2{
+
+        opacity: 0;
+        font-size: 2em;
+        color: #101010;
+        position: absolute;
+
+        &.incoming{
+
+            position: relative;
+            opacity: 100;
+            transition: all .6s;
+            animation-name: slidein;
+            animation-duration: .4s;
+
+        }
+
+        &.outgoing{
+
+            position: relative;
+            transition: all .6s;
+            animation-name: slideout;
+            animation-duration: .2s;
+
+        }
+
+    }
+
+
 
 }
 
@@ -222,3 +299,17 @@ main{
     }
 
 }
+
+@keyframes slidein {
+    from {
+      transform: translateY(-100%);
+      filter: blur(100px);
+      opacity: 0;
+    }
+  
+    to {
+      transform: translateY(0);
+      filter: blur(0);
+      opacity: 100%;
+    }
+  }
