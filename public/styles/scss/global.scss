@@ -1,21 +1,11 @@
 @mixin breakpoint($breakpoint) {
-
-  @if map-has-key($breakpoints, $breakpoint) {
-
-    @media (max-width: map-get($breakpoints, $breakpoint)) {
-
-        @content;
-
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media (max-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    } @else {
+        @warn "The breakpoint #{$breakpoint} is not in the list:" + " #{map-keys($breakpoints)}.";
     }
-
-  }
- 
-  @else {
-
-    @warn "The breakpoint #{$breakpoint} is not in the list:" + " #{map-keys($breakpoints)}.";
-
-  }
-
 }
 
 $backgroundColor: #090909;
@@ -25,45 +15,42 @@ $faintTextLight: #777;
 // TODO: for some reason, I can't use $navHeight inside calc(). Hard coding 5em for now until I have a moment to figure this out.
 $navHeight: 5em;
 
-
 $breakpoints: (
-
-    'mobileNav': 600px,
-
+    "mobileNav": 600px,
 ) !default;
 
-body{
-
+body {
     background-color: $backgroundColor;
     width: 100vw;
-
 }
 
-p,a,li,h1,h2,h3,h4,select, animated-select{
-
+p,
+a,
+li,
+h1,
+h2,
+h3,
+h4,
+select,
+animated-select {
     color: $textLight;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana,
+        sans-serif;
 }
 
-small{
-
+small {
     color: $faintTextLight;
-
 }
 
-a{
+a {
+    color: #b41b95;
 
-    &:visited{
-
-        color: #b03c99;
-
+    &:visited {
+        color: #d39bc8;
     }
-
 }
 
-nav{
-
+nav {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -74,183 +61,161 @@ nav{
 
     background-color: $darkCardBackground;
 
-    h1{
-
+    h1 {
         font-size: 2em;
         font-weight: 500;
         //INFO: Z-Index prevents #mobileNavMenu from occluding the title when it's animating in/out.
         z-index: 100;
-
     }
-
 }
 
-main{
-
+main {
     width: 100%;
     display: flex;
     flex-direction: column;
 
-    &>small{
-
+    & > small {
         margin: 1em;
-
     }
-
 }
 
-select{
-
-    padding: .5em;
+select {
+    padding: 0.5em;
     border: none;
     border-radius: 0;
 
     font-size: 1.2em;
 
     color: black;
-
 }
 
-td{
-
+td {
     color: white;
-
 }
 
-animated-select{
-
+animated-select {
     background-color: #eee;
-    border-radius: .3em;
+    border-radius: 0.3em;
     color: #090909;
     overflow: hidden;
     white-space: nowrap;
 
-    h2{
-
+    h2 {
         opacity: 0;
         font-size: 2em;
         color: #101010;
         position: absolute;
 
-        &.incoming{
-
+        &.incoming {
             position: relative;
             opacity: 100;
-            transition: all .6s;
+            transition: all 0.6s;
             animation-name: slidein;
-            animation-duration: .4s;
-
+            animation-duration: 0.4s;
         }
 
-        &.outgoing{
-
+        &.outgoing {
             position: relative;
-            transition: all .6s;
+            transition: all 0.6s;
             animation-name: slideout;
-            animation-duration: .2s;
-
+            animation-duration: 0.2s;
         }
-
     }
-
-
-
 }
 
-.row{
-
+.row {
     display: flex;
     flex-direction: row;
-
 }
 
-.col{
-
+.col {
     display: flex;
     flex-direction: column;
-
 }
 
-.hero{
-
+.hero {
     display: flex;
     flex-direction: column;
     padding: 5em;
     width: 100%;
 
-    @include breakpoint('mobileNav'){
-       
+    @include breakpoint("mobileNav") {
         padding: 2em;
-
     }
 
-    h2{
-
-
-
+    h2 {
     }
-
 }
 
-.transition{
-
+.transition {
     display: flex;
     justify-content: center;
     background: #a53890;
     padding: 1.1em;
     box-shadow: 0px 0px 10px black inset;
     font-weight: bolder;
-
 }
 
-.weChall{
+.weChall {
+    background-color: $darkCardBackground;
+    padding: 1em;
 
-   background-color: $darkCardBackground; 
-   padding: 1em;
-
-   .row{
-
+    .row {
         gap: 1em;
+    }
 
-   }
-
-   .col{
-
+    .col {
         max-width: 50%;
-        @include breakpoint('mobileNav'){
-
+        @include breakpoint("mobileNav") {
             max-width: 100%;
+        }
+    }
+
+    .app {
+
+        background-color: white;
+        width: 100%;
+        border-radius: 0.3em;
+
+        .header{
+
+            border-radius: .3em .3em 0 0;
+            padding: .3em;
+            background-color: #7d90a0;
+
+            p{
+
+                font-weight: bold;
+                text-decoration: underline;
+
+            }
 
         }
 
-   }
 
+    }
 }
 
-.navWrapper{
-
+.navWrapper {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
     width: 100%;
-
 }
 
-.navItems{
-
+.navItems {
     display: flex;
     flex-direction: row;
     justify-content: end;
     width: 100%;
-    gap: .9em;
+    gap: 0.9em;
 
-    @include breakpoint('mobileNav'){
-
+    @include breakpoint("mobileNav") {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 1em; 
+        gap: 1em;
 
         position: absolute;
         top: 5em;
@@ -261,114 +226,85 @@ animated-select{
         background-color: $darkCardBackground;
 
         transform: translateY(calc(-100% - 5em));
-        transition: transform .2s ease-out;
+        transition: transform 0.2s ease-out;
 
-
-        p{
-
+        p {
             width: 100%;
-
 
             font-size: 2em;
             text-align: center;
 
             cursor: pointer;
 
-            &:hover{
-
+            &:hover {
                 background-color: #090909;
-                transition: background-color .2s;
-                border-radius: .1em;
-
+                transition: background-color 0.2s;
+                border-radius: 0.1em;
             }
-
         }
 
-        &.opened{
-            
+        &.opened {
             display: flex;
             transform: translateY(0);
-
         }
-
-        
     }
-
 }
 
-.navButton{
-
+.navButton {
     display: none;
     flex-direction: column;
-    gap: .3em;
+    gap: 0.3em;
     cursor: pointer;
     padding: 0.6em;
 
-    .line{
-
+    .line {
         width: 1.5em;
-        height: .2em;
+        height: 0.2em;
         background-color: $textLight;
-        transition: transform .2s;
+        transition: transform 0.2s;
 
-        .line1{
-
+        .line1 {
             transform-origin: top left;
-
         }
 
-        .line3{
-
+        .line3 {
             transform-origin: bottom left;
-
         }
-
     }
 
-    &.opened{
+    &.opened {
+        $lineTranslate: 0.1em;
 
-        $lineTranslate: .1em;
-
-        .line1{
-
+        .line1 {
             transform-origin: top left;
             transform: rotate(45deg);
-
         }
 
-        .line2{
-
+        .line2 {
             transform: scaleX(0);
-
         }
 
-        .line3{
-
+        .line3 {
             transform-origin: bottom left;
             transform: rotate(-45deg);
-
         }
-
     }
 
-    @include breakpoint('mobileNav'){
-
+    @include breakpoint("mobileNav") {
         display: flex;
-
     }
-
 }
 
 @keyframes slidein {
     from {
-      transform: translateY(-100%);
-      filter: blur(100px);
-      opacity: 0;
+        transform: translateY(-100%);
+        filter: blur(100px);
+        opacity: 0;
     }
-  
+
     to {
-      transform: translateY(0);
-      filter: blur(0);
-      opacity: 100%;
+        transform: translateY(0);
+        filter: blur(0);
+        opacity: 100%;
     }
-  }
+}

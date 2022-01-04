@@ -3,7 +3,15 @@ body {
   width: 100vw;
 }
 
-p, a, li, h1, h2, h3, h4, select, animated-select {
+p,
+a,
+li,
+h1,
+h2,
+h3,
+h4,
+select,
+animated-select {
   color: white;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
@@ -12,8 +20,11 @@ small {
   color: #777;
 }
 
+a {
+  color: #b41b95;
+}
 a:visited {
-  color: #b03c99;
+  color: #d39bc8;
 }
 
 nav {
@@ -123,6 +134,20 @@ animated-select h2.outgoing {
   .weChall .col {
     max-width: 100%;
   }
+}
+.weChall .app {
+  background-color: white;
+  width: 100%;
+  border-radius: 0.3em;
+}
+.weChall .app .header {
+  border-radius: 0.3em 0.3em 0 0;
+  padding: 0.3em;
+  background-color: #7d90a0;
+}
+.weChall .app .header p {
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 .navWrapper {
