@@ -1,145 +1,209 @@
 <%# inspiration: https://iamfaqeehhokyky.github.io/# %>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
+    <!DOCTYPE html>
+    <html lang="en">
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to my slice.</title>
-    <link rel="stylesheet" href="/styles/css/reset.css">
-    <link rel="stylesheet" href="/styles/css/global.css">
-    <script src="/scripts/animatedSelectElement.js" defer></script>
-    <script src="/scripts/navMenuButtonAnimation.js" defer></script>
+    <head>
 
-</head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Welcome to my slice.</title>
+        <link rel="stylesheet" href="/styles/css/reset.css">
+        <link rel="stylesheet" href="/styles/css/global.css">
+        <script src="/scripts/animatedSelectElement.js" defer></script>
+        <script src="/scripts/navMenuButtonAnimation.js" defer></script>
 
-<body>
+    </head>
 
-    <nav>
+    <body>
 
-        <h1>KKPortfolio</h1>
+        <nav>
 
-        <div class="navWrapper">
+            <h1>KKPortfolio</h1>
+
+            <div class="navWrapper">
 
 
-            <div id="mobileNavMenu" class="navItems">
+                <div id="mobileNavMenu" class="navItems">
 
-                <p>Home</p>
+                    <p>Home</p>
+
+                </div>
+
+                <div id="navMenuButton" class="navButton">
+
+                    <div class="line line1"></div>
+                    <div class="line line2"></div>
+                    <div class="line line3"></div>
+
+                </div>
+
 
             </div>
 
-            <div id="navMenuButton" class="navButton">
+        </nav>
 
-                <div class="line line1"></div>
-                <div class="line line2"></div>
-                <div class="line line3"></div>
+        <div class="warningRow">
 
+            <div class="warning">
+                <h1>Please note, this is still a work in progress!</h1>
             </div>
-
 
         </div>
 
-    </nav>
+        <main>
 
-    <div class="warningRow">
+            <section class="narrow hero">
 
-        <div class="warning"><h1>Please note, this is still a work in progress!</h1></div>
+                <h2 style="font-size: 3em;">Hi!🙂</h2>
+                <h2>How can I help you?</h2>
 
-    </div>
+                <animated-select>
+                    <h2>Backend [Node.js]</h2>
+                    <h2>Backend [SQL Queries]</h2>
+                    <h2>Backend [Relational DB Admin.]</h2>
+                    <h2>Backend [Database Architecture]</h2>
+                    <h2>Python</h2>
+                    <h2>Frontend [Vanilla JS]</h2>
+                    <h2>Frontend [HTML]</h2>
+                    <h2>Frontend [CSS/SASS]</h2>
+                    <h2>Frontend [React]</h2>
+                    <h2>Linux Administration</h2>
+                    <h2>Windows Administration</h2>
+                    <h2>MacOS Administration</h2>
+                    <h2>Process Automation</h2>
+                    <h2>REST API's and Integration</h2>
+                    <h2>BASH Scripting</h2>
+                </animated-select>
 
-    <main>
+                <small>The above "animated-select" element <a target="_blank"
+                        href="https://github.com/CroogQT/karimkhalil.com/blob/heroSection/public/scripts/animatedSelectElement.js">was
+                        created with</a> the <a target="_blank"
+                        href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements">HTML
+                        custom element standard</a>!</small>
 
-        <section class="narrow hero">
+            </section>
 
-            <h2 style="font-size: 3em;">Hi!🙂</h2>
-            <h2>How can I help you?</h2>
+            <section class='transition'>
 
-            <animated-select>
-                <h2>Backend [Node.js]</h2>
-                <h2>Backend [SQL Queries]</h2>
-                <h2>Backend [Relational DB Admin.]</h2>
-                <h2>Backend [Database Architecture]</h2>
-                <h2>Python</h2>
-                <h2>Frontend [Vanilla JS]</h2>
-                <h2>Frontend [HTML]</h2>
-                <h2>Frontend [CSS/SASS]</h2>
-                <h2>Frontend [React]</h2>
-                <h2>Linux Administration</h2>
-                <h2>Windows Administration</h2>
-                <h2>MacOS Administration</h2>
-                <h2>Process Automation</h2>
-                <h2>REST API's and Integration</h2>
-                <h2>BASH Scripting</h2>
-            </animated-select>
+                <p>But don't take MY word for it, let me show you!</p>
 
-            <small>The above "animated-select" element <a target="_blank" href="https://github.com/CroogQT/karimkhalil.com/blob/heroSection/public/scripts/animatedSelectElement.js">was created with</a> the <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements">HTML custom element standard</a>!</small>
+            </section>
 
-        </section>
+            <section class="narrow weChall">
 
-        <section class='transition'>
+                <h2>WeChall Scraper</h2>
+                <hr style="">
+                <hr style="width: 20px;">
+                <div class="row">
 
-            <p>But don't take MY word for it, let me show you!</p>
+                    <div class="col">
 
-        </section>
-
-        <section class="narrow weChall">
-
-            <h2>WeChall Scraper</h2>
-            <hr style="">
-            <hr style="width: 20px;">
-            <div class="row">
-
-                <div class="col">
-
-                    <h3>Technologies Involved</h3>
-                    <ul>
-                        <li>NodeJS</li>
-                        <li>ExpressJS</li>
-                    </ul>
-                    <h3>Description</h3>
-                    <p><a href="https://wechall.net" target="_blank">Wechall.net</a> is a site that allows users to get an overview of their challenge history on various third party sites though various integrations.</p>
-                    <br>
-                    <p>Without using a public API, this small application fetches details about my personal progress and updates a database.</p>
-                    <p>If you'd like to validate the data you're being shown, you can <a href="https://wechall.karimkhalil.com">check my progress on WeChall here!</a></p>
-
-                </div>
-
-                <div class="col app">
-
-                    <div class="header">
-
-                        <p>My Latest Activity</p>
+                        <h3>Technologies Involved</h3>
+                        <ul>
+                            <li>NodeJS</li>
+                            <li>ExpressJS</li>
+                        </ul>
+                        <h3>Description</h3>
+                        <p><a href="https://wechall.net" target="_blank">Wechall.net</a> is a site that allows users to
+                            get an overview of their challenge history on various third party sites though various
+                            integrations.</p>
+                        <br>
+                        <p>Without using a public API, this small application fetches details about my personal progress
+                            and updates a database.</p>
+                        <p>If you'd like to validate the data you're being shown, you can <a
+                                href="https://wechall.karimkhalil.com" target="_blank">check my progress on WeChall here!</a></p>
 
                     </div>
 
-                    <div class="body">
+                    <div class="col app">
 
-                        <p>This is still a WIP!</p>
+                        <div class="header">
+
+                            <p>My Latest Activity</p>
+
+                        </div>
+
+                        <div class="body col">
+
+                            <table>
+
+                                <thead>
+                                    <tr>
+
+                                        <th>Time</th>
+                                        <th>Action</th>
+                                        <th>Detail</th>
+
+                                    </tr>
+
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td>Dec 30, 2021 - 21:47:08</td>
+                                        <td>Gained 18.50% on OverTheWire.org</td>
+                                        <td>2767 points</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Dec 30, 2021 - 21:47:08</td>
+                                        <td>Gained 18.50% on OverTheWire.org</td>
+                                        <td>2767 points</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dec 30, 2021 - 21:47:08</td>
+                                        <td>Gained 18.50% on OverTheWire.org</td>
+                                        <td>2767 points</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dec 30, 2021 - 21:47:08</td>
+                                        <td>Gained 18.50% on OverTheWire.org</td>
+                                        <td>2767 points</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dec 30, 2021 - 21:47:08</td>
+                                        <td>Gained 18.50% on OverTheWire.org</td>
+                                        <td>2767 points</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dec 30, 2021 - 21:47:08</td>
+                                        <td>Gained 18.50% on OverTheWire.org</td>
+                                        <td>2767 points</td>
+                                    </tr>
+
+                                </tbody>
+
+
+                            </table>
+
+                        </div>
+
 
                     </div>
-                    
 
                 </div>
-                
-            </div>
 
-            <small>Notice in the above example that the "check my progres on WeChall" link points to <a href="https://wechall.karimkhalil.com">https://wechall.karimkhalil.com</a>. Wow, this guy must understand DNS! 😮</small>
+                <small>Notice in the above example that the "check my progres on WeChall" link points to <a
+                        href="https://wechall.karimkhalil.com" target="_blank">https://wechall.karimkhalil.com</a>. Wow, this guy must
+                    understand DNS! 😮</small>
 
-        </section>
-        
-        <section class='transition'>
+            </section>
 
-            <%- include('../public/images/github.svg') %> 
-            <p> Did you know the code for this portfolio is accessable on <a href="https://github.com/CroogQT/karimkhalil.com">GitHub</a>?</p>
+            <section class='transition'>
 
-        </section>
+                <%- include('../public/images/github.svg') %>
+                    <p> Did you know the code for this portfolio is accessable on <a
+                            href="https://github.com/CroogQT/karimkhalil.com" target="_blank">GitHub</a>?</p>
+
+            </section>
 
 
 
-    </main>
+        </main>
 
-</body>
+    </body>
 
-</html>
+    </html>
