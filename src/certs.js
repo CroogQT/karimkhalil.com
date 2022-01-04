@@ -4,7 +4,7 @@ const certs = {
 
     getHTTPSCredentials(domain){
 
-        const credentialDirectoryPath = `/etc/letsenctypt/live/${domain}`
+        const credentialDirectoryPath = `/etc/letsencrypt/live/${domain}`
 
         const credentials = {
 
