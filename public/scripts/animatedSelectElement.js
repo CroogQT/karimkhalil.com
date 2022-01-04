@@ -1,13 +1,13 @@
 const template = document.createElement('template')
+
 template.innerHTML = `
-<div id="wrapper" style="padding: 1em">
-<slot/>
-</div>
+<slot style="padding: 1em"/>
 `;
 
 function isElementAnimateable(element){
 
     const animateableElements = ['H1', 'H2', 'H3', 'H4', 'H5'];
+
     if (animateableElements.includes(element.tagName)){
 
         return true;
@@ -24,9 +24,18 @@ function animateElement(){
 
 }
 
+function getRandomArrayIndex(array){
+
+    const randomIndex = Math.floor(Math.random() * array.length);
+
+    return randomIndex;
+
+
+}
+
 function getRandomElementFromArray(elementArray, usedElements){
 
-    const randomIndex = Math.floor(Math.random() * elementArray.length);
+    const randomIndex = getRandomArrayIndex(elementArray);
     let randomElement = elementArray[randomIndex];
 
     usedElements.push(randomElement);
@@ -45,19 +54,30 @@ class AnimatedSelect extends HTMLElement{
         this.attachShadow({mode: 'open'})
         this.shadowRoot.appendChild(template.content.cloneNode(true));
         this.slots = this.shadowRoot.querySelectorAll('slot');
-        this.wrapper = this.shadowRoot.getElementById('wrapper');
-        this.optionElements = [];
+        this.wrapper = this
+        this.unusedElements = [];
         this.usedElements = [];
         this.backgroundColor = "#eee";
+        this.displayedElementClass = 'incoming';
         this.isAnimated = true;
+        this.isOneElementDisplayed = false
+        this.animationDurationMS = 1800;
+        this.style.padding = '.7em'
+    
         this.slots.forEach(slot => {
            
             slot.assignedElements().forEach( element => {
 
                 if(isElementAnimateable(element)){
 
-                    element.style.display = 'none'
-                    this.optionElements.push(element);
+                    if(!this.isOneElementDisplayed){
+
+                        element.classList.add(this.displayedElementClass)
+                        this.isOneElementDisplayed = true;
+
+                    }
+
+                    this.unusedElements.push(element);                  
 
                 }
 
@@ -66,24 +86,32 @@ class AnimatedSelect extends HTMLElement{
         });
 
         const animationInterval = setInterval(() => {
-        
-            if(this.optionElements.length === 0){
 
-                this.optionElements = this.usedElements;
-                this.usedElements.length = 0;
+            this.#swapElementArraysWhenUnusedEmpty()
 
+            const randomElement = getRandomElementFromArray(this.unusedElements, this.usedElements);
+            const currentElement = this.querySelector('.incoming');
+            randomElement.classList.add('incoming');
+
+            if(currentElement){
+
+                currentElement.classList.remove('incoming')
+            
             }
 
-            let randomElement = getRandomElementFromArray(this.optionElements, this.usedElements)
 
-            console.log(this.usedElementsk)
-            this.usedElements.push(randomElement)
+        }, this.animationDurationMS);
 
-            this.wrapper.innerHTML = '';
-            randomElement.style.display = 'block'
-            this.wrapper.appendChild(randomElement);
+    }
 
-        }, 800);
+    #swapElementArraysWhenUnusedEmpty() {
+
+        if(this.unusedElements.length === 0){
+
+            this.unusedElements = this.usedElements;
+            this.usedElements = [];
+
+        }
 
     }
 

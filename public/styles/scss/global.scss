@@ -19,6 +19,9 @@
 }
 
 
+  
+
+
 $backgroundColor: #090909;
 $darkCardBackground: #141414;
 $textLight: white;
@@ -114,13 +117,38 @@ animated-select{
 
     background-color: #eee;
     border-radius: .3em;
+    color: #090909;
+    overflow: hidden;
 
     h2{
 
+        opacity: 0;
         font-size: 2em;
-        color: #080808;
+        color: #101010;
+        position: absolute;
+
+        &.incoming{
+
+            position: relative;
+            opacity: 100;
+            transition: all .6s;
+            animation-name: slidein;
+            animation-duration: .4s;
+
+        }
+
+        &.outgoing{
+
+            position: relative;
+            transition: all .6s;
+            animation-name: slideout;
+            animation-duration: .2s;
+
+        }
 
     }
+
+
 
 }
 
@@ -271,3 +299,17 @@ animated-select{
     }
 
 }
+
+@keyframes slidein {
+    from {
+      transform: translateY(-100%);
+      filter: blur(100px);
+      opacity: 0;
+    }
+  
+    to {
+      transform: translateY(0);
+      filter: blur(0);
+      opacity: 100%;
+    }
+  }
