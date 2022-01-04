@@ -1,12 +1,12 @@
 {
   "dependencies": {
+    "axios": "^0.24.0",
     "ejs": "^3.1.6",
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "node-html-parser": "^5.2.0"
   },
   "type": "module",
   "scripts": {
-
-    "dev": "sass --watch ./public/styles/scss/:./public/styles/css/ & sudo nodemon server.js"
-
+    "dev": "sass --watch ./public/styles/scss/:./public/styles/css/ & sudo -E nodemon server.js"
   }
 }
