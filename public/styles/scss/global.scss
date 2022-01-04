@@ -31,6 +31,8 @@ h1,
 h2,
 h3,
 h4,
+th,
+td,
 select,
 animated-select {
     color: $textLight;
@@ -87,6 +89,12 @@ select {
     font-size: 1.2em;
 
     color: black;
+}
+
+table{
+
+    border-collapse: collapse;
+
 }
 
 td {
@@ -216,7 +224,7 @@ animated-select {
 
     .app {
 
-        background-color: white;
+        background-color: #eee;
         width: 100%;
         border-radius: 0.3em;
 
@@ -237,6 +245,51 @@ animated-select {
 
         .body{
 
+            height: 100%;
+            max-width: 100%;
+            padding: .4em;
+
+            white-space: nowrap;
+            overflow: scroll;
+
+            th{
+
+                text-align: left;
+                padding: 0em .8em;
+                color: black;
+                margin-left: .5em;
+
+                &:after {
+
+                    content: '';
+                    display: block;
+                    position: relative;
+                    width: 7.5em;
+                    height: .15em;
+                    left: -.3em;
+
+                    background: $darkCardBackground;
+                    opacity: .4;
+
+                }
+
+            }
+
+            td{
+
+                padding: .3em .8em;
+                font-size: .8em;
+                
+                color: $darkCardBackground;
+
+            }
+
+            tr:nth-child(2n){
+
+                background-color: #ccc;
+
+            }
+
             p{
 
                 color: $darkCardBackground;
@@ -246,8 +299,8 @@ animated-select {
 
         }
 
-
     }
+
 }
 
 .navWrapper {

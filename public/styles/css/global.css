@@ -10,6 +10,8 @@ h1,
 h2,
 h3,
 h4,
+th,
+td,
 select,
 animated-select {
   color: white;
@@ -57,6 +59,10 @@ select {
   border-radius: 0;
   font-size: 1.2em;
   color: black;
+}
+
+table {
+  border-collapse: collapse;
 }
 
 td {
@@ -161,7 +167,7 @@ animated-select h2.outgoing {
   }
 }
 .weChall .app {
-  background-color: white;
+  background-color: #eee;
   width: 100%;
   border-radius: 0.3em;
 }
@@ -173,6 +179,37 @@ animated-select h2.outgoing {
 .weChall .app .header p {
   font-weight: bold;
   text-decoration: underline;
+}
+.weChall .app .body {
+  height: 100%;
+  max-width: 100%;
+  padding: 0.4em;
+  white-space: nowrap;
+  overflow: scroll;
+}
+.weChall .app .body th {
+  text-align: left;
+  padding: 0em 0.8em;
+  color: black;
+  margin-left: 0.5em;
+}
+.weChall .app .body th:after {
+  content: "";
+  display: block;
+  position: relative;
+  width: 7.5em;
+  height: 0.15em;
+  left: -0.3em;
+  background: #141414;
+  opacity: 0.4;
+}
+.weChall .app .body td {
+  padding: 0.3em 0.8em;
+  font-size: 0.8em;
+  color: #141414;
+}
+.weChall .app .body tr:nth-child(2n) {
+  background-color: #ccc;
 }
 .weChall .app .body p {
   color: #141414;
