@@ -94,6 +94,11 @@ animated-select h2.outgoing {
   display: flex;
   flex-direction: row;
 }
+@media (max-width: 600px) {
+  .row {
+    flex-direction: column;
+  }
+}
 
 .col {
   display: flex;
@@ -148,6 +153,10 @@ animated-select h2.outgoing {
 .weChall .app .header p {
   font-weight: bold;
   text-decoration: underline;
+}
+.weChall .app .body p {
+  color: #141414;
+  padding: 1em;
 }
 
 .navWrapper {
@@ -242,6 +251,30 @@ animated-select h2.outgoing {
     transform: translateY(0);
     filter: blur(0);
     opacity: 100%;
+  }
+}
+.warningRow {
+  padding: 3em;
+}
+@media (max-width: 600px) {
+  .warningRow {
+    padding: 1em;
+  }
+}
+
+.warning {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  text-align: center;
+  background-color: #a02424;
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
+@media (max-width: 600px) {
+  .warning h1 {
+    font-size: 1em;
   }
 }
 
