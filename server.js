@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
 
 })
 
-app.get('/api/wechal', async (req, res) => {
+app.get('/api/wechall', async (req, res) => {
 
     const response = await axios({
 
@@ -47,8 +47,8 @@ app.get('/api/wechal', async (req, res) => {
 
     dataRows.forEach(row => {
        
-        console.log(row.outerHTML);
-        formattedResponse = formattedResponse + row;        
+        console.log(row);
+        formattedResponse = formattedResponse + '<br>' + row.outerHTML;        
 
     });
 
